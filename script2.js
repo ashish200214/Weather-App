@@ -4,26 +4,49 @@ $(document).ready(function () {
     "cityName"
   )}&aqi=yes`;
 
-  let hourUrl = `http://api.weatherapi.com/v1/forecast.json?key=${weatherApiKey}&q=${localStorage.getItem(
+  let next10Days = `http://api.weatherapi.com/v1/forecast.json?key=${weatherApiKey}&q=${localStorage.getItem(
     "cityName"
   )}&days=10`;
 
   let outputOfForecast = [];
 
   if (localStorage.getItem("cityName")) {
-    $.getJSON(
-      `http://api.weatherapi.com/v1/forecast.json?key=${weatherApiKey}&q=${localStorage.getItem(
-        "cityName"
-      )}&days=10`,
+    $.getJSON(next10Days,
       function (result) {
         console.log("forecast");
 
         console.log(result.forecast.forecastday);
-        result.forecast.forecastday = outputOfForecast;
+        outputOfForecast = result.forecast.forecastday;
+        $(document.body).append(`
+         <div id="forecast-div" class="mt-3 bg-warning-subtle p-2 rounded-4 w-100 mx-auto">
+                     <div class="d-flex justify-content-between mb-3">
+                    <ul class="list-group">
+                    <li class="list-group-item">Next 10 Days Forecasting</li>
+                    
+                    </ul>
+                    </div>
+                    <div id="forecast-weather-grid"></div>
+
+         </div>
+          `);
+        for(let output of outputOfForecast ){
+          $('#forecast-weather-grid').append(`
+            
+            
+            <div class="bg-white p-3 rounded-3 d-inline-flex mb-3 flex-column mx-auto row">
+              <div class=" text-center mb-3 flex-column">${output.date}</div>
+              <div class=" d-inline-block">
+              <img class="mx-auto d-flex" src="${output.day.condition.icon}">
+            </div>
+            <div>${output.day.condition.text}</div>
+
+            
+            `);
+        }
       }
     );
     $.getJSON(url, function (data) {
-      console.log(data); //obj->current->condition->icon
+      // console.log(data); //obj->current->condition->icon
       let imageUrl = data.current.condition.icon;
       let epaIndex = data.current.air_quality["us-epa-index"];
       let airQualityText = "";
