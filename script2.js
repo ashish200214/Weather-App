@@ -1,8 +1,8 @@
 $(document).ready(function () {
   const weatherApiKey = "d76b7400abc34dffa40181822252007";
   const city = localStorage.getItem("cityName");
-  const url = `http://api.weatherapi.com/v1/current.json?key=${weatherApiKey}&q=${encodeURIComponent(city)}&aqi=yes`;
-  const next10Days = `http://api.weatherapi.com/v1/forecast.json?key=${weatherApiKey}&q=${encodeURIComponent(city)}&days=10`;
+  const url = `https://api.weatherapi.com/v1/current.json?key=${weatherApiKey}&q=${encodeURIComponent(city)}&aqi=yes`;
+  const next10Days = `https://api.weatherapi.com/v1/forecast.json?key=${weatherApiKey}&q=${encodeURIComponent(city)}&days=10`;
 
   let outputOfForecast = [];
 
