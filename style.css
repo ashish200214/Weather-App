@@ -96,15 +96,7 @@ p{
     }
 
     /* Fallback background if video fails or on small screens */
-    @media (max-width: 768px) {
-      .video-bg-wrapper {
-        display: none; /* disable video on small devices for performance */
-      }
-      body {
-        background-color: aqua;
-      }
-    }
-
+   
   .rain-chance-img{
     width: 40%;
     height:40% ;
