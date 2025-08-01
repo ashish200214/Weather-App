@@ -9,7 +9,7 @@ img{
 
 #temp-header{
     font-size: 10vh;
-      font-family: "Oswald", sans-serif;
+    font-family: "Oswald", sans-serif;
   font-optical-sizing: auto;
   font-weight: 700;
   font-style: normal;
@@ -24,3 +24,93 @@ p{
         font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 
 }
+
+.inter-font{
+    font-family: "Inter", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.oswad-font{
+
+    font-family: "Oswald", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.oswad-font-light{
+
+    font-family: "Oswald", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 300;
+  font-style: normal;
+}
+
+.oswad-font-medium{
+
+    font-family: "Oswald", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.video-bg-wrapper {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      z-index: -1; 
+    }
+
+    .video-bg-wrapper video {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 100%;
+      height: 100%;
+      object-fit: cover; 
+      transform: translate(-50%, -50%);
+    }
+
+    /* Optional overlay for contrast */
+    .overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.4);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* Foreground content */
+    .content {
+      position: relative;
+      z-index: 1;
+      color: white;
+      padding: 2rem;
+      font-family: sans-serif;
+      text-align: center;
+    }
+
+    /* Fallback background if video fails or on small screens */
+    @media (max-width: 768px) {
+      .video-bg-wrapper {
+        display: none; /* disable video on small devices for performance */
+      }
+      body {
+        background-color: aqua;
+      }
+    }
+
+  .rain-chance-img{
+    width: 40%;
+    height:40% ;
+  }
+
+  .condition-img{
+    width: 40%;
+    height: 40%;
+  }
