@@ -8,9 +8,11 @@ $(document).ready(function () {
     "cityName"
   )}&days=10`;
 
-  let outputOfForecast = [];
+  
+  //actual impl
 
-  if (localStorage.getItem("cityName")) {
+  let outputOfForecast = [];
+  function printFutureForecast(){
     $.getJSON(next10Days,
       function (result) {
         console.log("forecast");
@@ -49,6 +51,9 @@ $(document).ready(function () {
         }
       }
     );
+  }
+
+  function printCurrentForecast(){
     $.getJSON(url, function (data) {
       // console.log(data); //obj->current->condition->icon
       let imageUrl = data.current.condition.icon;
@@ -110,6 +115,8 @@ $(document).ready(function () {
 
                     
 
+                    
+
                     <tr>
                     <th>Wind</th>
                     <td>WSW${data.current.wind_kph}</td>
@@ -123,6 +130,18 @@ $(document).ready(function () {
                     ${airQualityText}
 
                     </tr>
+                   <tr>
+                    <th>Humidity</th>
+                    <td>  ${data.current.humidity}</td>
+
+                    </tr>
+                      <tr>
+                    <th>City</th>
+                    <td>  ${localStorage.getItem('cityName')}</td>
+
+                    </tr>
+
+                   
                     
                     </table>
                     </div>
@@ -136,7 +155,17 @@ $(document).ready(function () {
                             <ul class="list-group">
                             <li class="list-group-item list-group-item-danger">An Error Occurred , Please Check The Spelling.</li>
                             </ul>
+                               <ul class="list-group">
+                    <a href="index.html" class="btn btn-warning">Back</a>
+                    </ul>
+
                             `);
     });
+  }
+
+  
+  if (localStorage.getItem("cityName")) { 
+    printCurrentForecast();
+     printFutureForecast();
   }
 });
