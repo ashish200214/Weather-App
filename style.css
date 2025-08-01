@@ -1,3 +1,7 @@
+body {
+    background: aqua; /* fallback background color */
+  }
+  
 .condition-img, .rain-chance-img {
   width: 100%;
   max-width: 120px;
@@ -65,4 +69,14 @@ input::placeholder {
 
 .table-responsive {
   min-width: 0;
+}
+
+@media (max-width: 768px) {
+  video.bg-video {
+    display: none; /* hide video */
+  }
+
+  body {
+    background: aqua; /* fallback background color */
+  }
 }
