@@ -1,108 +1,68 @@
-input::placeholder{
-    text-align: center;
+.condition-img, .rain-chance-img {
+  width: 100%;
+  max-width: 120px;
+  height: auto;
+  object-fit: contain;
+  display: block;
+  margin: 0 auto;
 }
 
-img{
-    height: 15vh;
-    display: inline-block;
-}
-
-#temp-header{
-    font-size: 10vh;
-    font-family: "Oswald", sans-serif;
-  font-optical-sizing: auto;
+#temp-header {
+  font-size: clamp(2rem, 10vw, 6rem);
+  font-family: "Oswald", sans-serif;
   font-weight: 700;
-  font-style: normal;
+  margin: 0;
 }
 
-p{
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+input::placeholder {
+  text-align: center;
 }
 
-.date-future{
- 
-        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-
-}
-
-.inter-font{
-    font-family: "Inter", sans-serif;
-  font-optical-sizing: auto;
+.inter-font {
+  font-family: "Inter", sans-serif;
   font-weight: 700;
-  font-style: normal;
 }
 
-.oswad-font{
-
-    font-family: "Oswald", sans-serif;
-  font-optical-sizing: auto;
+.oswad-font {
+  font-family: "Oswald", sans-serif;
   font-weight: 700;
-  font-style: normal;
 }
 
-.oswad-font-light{
-
-    font-family: "Oswald", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: 300;
-  font-style: normal;
-}
-
-.oswad-font-medium{
-
-    font-family: "Oswald", sans-serif;
-  font-optical-sizing: auto;
+.oswad-font-medium {
+  font-family: "Oswald", sans-serif;
   font-weight: 400;
-  font-style: normal;
+}
+
+.oswad-font-light {
+  font-family: "Oswald", sans-serif;
+  font-weight: 300;
 }
 
 .video-bg-wrapper {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      overflow: hidden;
-      z-index: -1; 
-    }
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  z-index: -2;
+}
+.video-bg-wrapper video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  transform: translate(-50%, -50%);
+  object-fit: cover;
+  filter: brightness(0.6);
+}
 
-    .video-bg-wrapper video {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      width: 100%;
-      height: 100%;
-      object-fit: cover; 
-      transform: translate(-50%, -50%);
-    }
+.content {
+  position: relative;
+  z-index: 1;
+  color: white;
+}
 
-    /* Optional overlay for contrast */
-    .overlay {
-      position: fixed;
-      inset: 0;
-      background: rgba(0, 0, 0, 0.4);
-      pointer-events: none;
-      z-index: 0;
-    }
-
-    /* Foreground content */
-    .content {
-      position: relative;
-      z-index: 1;
-      color: white;
-      padding: 2rem;
-      font-family: sans-serif;
-      text-align: center;
-    }
-
-    /* Fallback background if video fails or on small screens */
-   
-  .rain-chance-img{
-    width: 40%;
-    height:40% ;
-  }
-
-  .condition-img{
-    width: 40%;
-    height: 40%;
-  }
+.table-responsive {
+  min-width: 0;
+}
